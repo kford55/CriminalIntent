@@ -3,9 +3,6 @@ package com.example.kennethford.criminalintent;
 import java.util.Date;
 import java.util.UUID;
 
-/**
- * Created by kennethford on 9/30/16.
- */
 public class Crime {
 
     private UUID mId;
