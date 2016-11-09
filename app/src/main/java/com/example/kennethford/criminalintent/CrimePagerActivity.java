@@ -42,6 +42,13 @@ public class CrimePagerActivity extends FragmentActivity {
                 return mCrimes.size();
             }
         });
+
+        for (int crimeIndex = 0; crimeIndex < mCrimes.size(); crimeIndex++) {
+            if (mCrimes.get(crimeIndex).getId().equals(crimeId)) {
+                mViewPager.setCurrentItem(crimeIndex);
+                break;
+            }
+        }
     }
 
     public static Intent newIntent(Context packageContext, UUID crimeId) {
