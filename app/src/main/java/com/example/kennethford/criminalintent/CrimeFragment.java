@@ -16,7 +16,11 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 import java.util.UUID;
+
+import static android.R.attr.data;
 
 public class CrimeFragment extends Fragment {
 
@@ -24,6 +28,7 @@ public class CrimeFragment extends Fragment {
     private EditText mTitleField;
     private Button mDateButton;
     private CheckBox mSolvedCheckBox;
+    private Button mDeleteCrimeButton;
 
     private static final String ARG_CRIME_ID = "crime_id";
     private static final String DIALOG_DATE = "DialogDate";
@@ -79,6 +84,22 @@ public class CrimeFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 mCrime.setSolved(isChecked);
+            }
+        });
+
+        mDeleteCrimeButton = (Button) v.findViewById(R.id.delete_crime);
+        mDeleteCrimeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UUID id = mCrime.getId();
+                List<Crime> crimeList = CrimeLab.get(getActivity()).getCrimes();
+                for (Iterator<Crime> iterator = crimeList.iterator(); iterator.hasNext();)   {
+                    if (id.equals(iterator.next().getId())) {
+                        iterator.remove();
+                        getActivity().finish();
+                    }
+                }
+                getActivity().finish();
             }
         });
 
