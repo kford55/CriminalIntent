@@ -12,4 +12,8 @@
         <item quantity="one">%1$s crime</item>
         <item quantity="other">%1$s crimes</item>
     </plurals>
+    <string name="empty_crime_list_line_1">No crimes currently stored</string>
+    <string name="empty_crime_list_line_2">please add a new crime to get started!</string>
+    <string name="add_new_crime">Add Crime</string>
+
 </resources>
