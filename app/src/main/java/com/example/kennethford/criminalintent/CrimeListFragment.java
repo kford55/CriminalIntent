@@ -71,6 +71,7 @@ public class CrimeListFragment extends Fragment {
         CrimeLab crimeLab = CrimeLab.get(getActivity());
         List<Crime> crimes = crimeLab.getCrimes();
         if (mAdapter != null) {
+            mAdapter.setCrimes(crimes);
             mAdapter.notifyDataSetChanged();
         }
         else {
@@ -165,6 +166,9 @@ public class CrimeListFragment extends Fragment {
             return mCrimes.size();
         }
 
+        public void setCrimes (List<Crime> crimes) {
+            mCrimes = crimes;
+        }
 
     }
 
